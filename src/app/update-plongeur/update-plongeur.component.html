@@ -1,0 +1,38 @@
+<h3>Mise à jour plongée</h3>
+<div [hidden] style="width: 500px;">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">num</label>
+            <input type="text" class="form-control" id="num" required [(ngModel)]="plongeur.num" name="num">
+        </div>
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" class="form-control" id="nom" required [(ngModel)]="plongeur.nom" name="nom">
+        </div>
+        <div class="form-group">
+            <label for="name">Prenom</label>
+            <input type="text" class="form-control" id="prenom" required [(ngModel)]="plongeur.prenom" name="prenom">
+        </div>
+        <div class="form-group">
+            <label for="name">niveau</label>
+            <input type="text" class="form-control" id="niveau" required [(ngModel)]="plongeur.niveau" name="niveau">
+        </div>
+        <div class="form-group">
+            <label for="name">date de la plongée</label>
+            <input type="text" class="form-control" id="datePlongee" required [(ngModel)]="plongeur.datePlongee" name="datePlongee">
+        </div>
+        <div class="form-group">
+            <label for="name">Profondeur de la plongée</label>
+            <input type="text" class="form-control" id="profondeur" required [(ngModel)]="plongeur.profondeur" name="profondeur">
+        </div>
+        <div class="form-group">
+            <label for="name">Durée de la plongée</label>
+            <input type="text" class="form-control" id="dureePlongee" required [(ngModel)]="plongeur.dureePlongee" name="dureePlongee">
+        </div>
+        <div class="form-group">
+            <label for="name">description</label>
+            <input type="text" class="form-control" id="description" required [(ngModel)]="plongeur.description" name="description">
+        </div>
+        <button type="submit" class="btn btn-success">Envoyer</button>
+    </form>
+</div>

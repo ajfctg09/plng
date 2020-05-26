@@ -1,0 +1,156 @@
+<h3>création d'une plongée</h3>
+<div [hidden]="submitted" style="width: 400px;">
+    <form #f="ngForm"  (ngSubmit)="onSubmit()">
+        <!-- <div class="form-group">
+            <label for="num">num</label>
+            <input type="text" class="form-control" id="num" required [(ngModel)]="plongeur.num" name="num">
+        </div> -->
+
+        <div ngModelGroup="contact"  #contact="ngModelGroup">
+            <div class="form-group">
+               
+                <label for="secondName">nom</label>
+                <input 
+                required
+                minlength="2"
+                ngModel name="secondName"
+                #secondName="ngModel"
+                name="secondName"
+                [(ngModel)]="plongeur.nom"
+                type="text" class="form-control" id="secondName" >
+                <div 
+                class="alert alert-danger"
+                *ngIf="secondName.touched && !secondName.valid">
+                <div *ngIf="secondName.errors.required">
+                        Le nom est obligatoire
+                </div>
+                </div>
+
+                   
+             <label for="firstName">prenom</label>
+                <input 
+                required
+                minlength="2"
+                ngModel name="firstName"
+                #firstName="ngModel"
+                name="firstName"
+                [(ngModel)]="plongeur.prenom"
+                type="text" class="form-control" id="firstName" >
+                <div 
+                class="alert alert-danger"
+                *ngIf="firstName.touched && !firstName.valid">
+                <div *ngIf="firstName.errors.required">
+                        Le prénom est obligatoire
+            </div>
+            </div> 
+
+
+            <label for="name">niveau</label>
+            <select 
+                required
+                ngModel name="niveau"
+                #niveau="ngModel"
+                name="niveau"
+                [(ngModel)]="plongeur.niveau"
+                class="form-control" id="niveau"  >
+                        <option selected>  </option>
+                        <option> 0 </option>
+                        <option> 1 </option>
+                        <option> 2 </option>
+                        <option> 3 </option>
+                        <option> 4 </option>
+            </select>
+            <div 
+            class="alert alert-danger"
+            *ngIf="niveau.touched && !niveau.valid">
+            <div *ngIf="niveau.errors.required">
+                    Le niveau est obligatoire
+        </div>
+        </div> 
+
+             <label for="name">date de la plongée</label>
+              <input 
+                required 
+                ngModel name="datePlongee"
+                #datePlongee="ngModel"
+                name="datePlongee"
+                [(ngModel)]="plongeur.datePlongee"
+                type="text" class="form-control" id="datePlongee" >
+                <div 
+                class="alert alert-danger"
+                *ngIf="datePlongee.touched && !datePlongee.valid">
+                <div *ngIf="datePlongee.errors.required">
+                        Veuillez entrer la date de la plongée (obligatoire)
+            </div>
+            </div> 
+
+            <label for="name">profondeur de la plongée</label>
+            <input 
+                required 
+                ngModel name="profondeur"
+                #profondeur="ngModel"
+                name="profondeur"
+                [(ngModel)]="plongeur.profondeur"
+                type="text" class="form-control" id="profondeur">
+                <div 
+                class="alert alert-danger"
+                *ngIf="profondeur.touched && !profondeur.valid">
+                <div *ngIf="profondeur.errors.required">
+                        Veuillez entrer la profondeur de la plongée (obligatoire)
+            </div>
+            </div> 
+                
+            <label for="name">durée de la plongée</label>
+            <input 
+                required 
+                ngModel name="dureePlongee"
+                #dureePlongee="ngModel"
+                name="dureePlongee"
+                [(ngModel)]="plongeur.dureePlongee"
+                type="text" class="form-control" id="dureePlongee">
+                <div 
+                class="alert alert-danger"
+                *ngIf="dureePlongee.touched && !dureePlongee.valid">
+                <div *ngIf="dureePlongee.errors.required">
+                        Veuillez entrer la durée totale de la plongée
+            </div>
+            </div> 
+
+
+            <label for="name">description</label>
+            <select 
+                required 
+                ngModel name="description"
+                #description="ngModel"
+                name="description"
+                [(ngModel)]="plongeur.description"
+                class="form-control" id="description">
+                        <option selected> Loisirs </option>
+                        <option> Exploration épave </option>
+                        <option> Exploration fonds </option>
+                        <option> Exploration grotte </option>
+                        <option> Photographie </option>
+                        <option> Adaptation </option>
+                        <option> Entrainement plongée profonde </option>
+                        <option> Exercice d'orientation </option>
+                        <option> Formation niveau </option>
+            </select>
+            <div 
+                class="alert alert-danger"
+                *ngIf="description.touched && !description.valid">
+                <div *ngIf="description.errors.required">
+                        Veuillez entrer la description succinte de la plongée
+            </div>
+            </div> 
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!f.valid">envoyer</button>
+    </form>
+</div>
+
+
+
+<div [hidden]="!submitted">
+    <h4>Envoi réussi!</h4>
+    <button class="btn btn-success" (click)="newPlongeur()">Add</button>
+</div>

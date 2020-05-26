@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "angular-springboot-plongeur",
+    "staging": "angular-springboot-plongeur"
+  }
+}

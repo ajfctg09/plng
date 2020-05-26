@@ -1,0 +1,29 @@
+.nav-item img{
+    max-width: 25%;
+    height: auto;
+    /* align-items: flex-end; */
+    text-align: right;   
+    float:right;
+    padding-bottom: 8px;
+    padding-right:10px ;
+}
+
+.navbar-nav {
+    height: 65px;
+
+}
+
+.nav-item {
+    text-align: center;
+    width: 200px;
+}
+
+.card-body {
+    color: white;
+    text-align: center;
+}
+
+body {
+    color: white;
+
+}

@@ -1,0 +1,31 @@
+<h2>Details plongée</h2>
+<hr />
+<div *ngIf="plongeur">
+    <div>
+        <label><b>num: </b></label> {{plongeur.num}}
+    </div>
+    <div>
+        <label><b>nom: </b></label> {{plongeur.nom}}
+    </div>
+    <div>
+        <label><b>prenom: </b></label> {{plongeur.prenom}}
+    </div>
+    <div>
+        <label><b>niveau: </b></label> {{plongeur.niveau}}
+    </div>
+    <div>
+        <label><b>date de la plongée: </b></label> {{plongeur.datePlongee}}
+    </div>
+    <div>
+        <label><b>profondeur de la plongée: </b></label> {{plongeur.profondeur}}
+    </div>
+    <div>
+        <label><b>durée de la plongée: </b></label> {{plongeur.dureePlongee}}
+    </div>
+    <div>
+        <label><b>description: </b></label> {{plongeur.description}}
+    </div>
+</div>
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Retour à la liste des plongées</button><br>
