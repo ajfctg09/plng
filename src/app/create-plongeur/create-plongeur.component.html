@@ -1,12 +1,12 @@
-<h3>création d'une plongée</h3>
-<div [hidden]="submitted" style="width: 400px;">
-    <form #f="ngForm"  (ngSubmit)="onSubmit()">
+<h3>Création d'une plongée</h3>
+<!-- <div [hidden]="submitted" style="width: 400px;">
+    <form #f="ngForm"  (ngSubmit)="onSubmit()"> -->
         <!-- <div class="form-group">
             <label for="num">num</label>
             <input type="text" class="form-control" id="num" required [(ngModel)]="plongeur.num" name="num">
         </div> -->
 
-        <div ngModelGroup="contact"  #contact="ngModelGroup">
+       <!--  <div ngModelGroup="contact"  #contact="ngModelGroup">
             <div class="form-group">
                
                 <label for="secondName">nom</label>
@@ -15,7 +15,6 @@
                 minlength="2"
                 ngModel name="secondName"
                 #secondName="ngModel"
-                name="secondName"
                 [(ngModel)]="plongeur.nom"
                 type="text" class="form-control" id="secondName" >
                 <div 
@@ -45,7 +44,7 @@
             </div> 
 
 
-            <label for="name">niveau</label>
+            <label for="niveau">niveau</label>
             <select 
                 required
                 ngModel name="niveau"
@@ -67,15 +66,15 @@
                     Le niveau est obligatoire
         </div>
         </div> 
-
-             <label for="name">date de la plongée</label>
+            
+             <label for="datePlongee">date de la plongée</label>
               <input 
                 required 
                 ngModel name="datePlongee"
                 #datePlongee="ngModel"
                 name="datePlongee"
                 [(ngModel)]="plongeur.datePlongee"
-                type="text" class="form-control" id="datePlongee" >
+                type="text"  class="form-control" id="datePlongee" >
                 <div 
                 class="alert alert-danger"
                 *ngIf="datePlongee.touched && !datePlongee.valid">
@@ -84,7 +83,7 @@
             </div>
             </div> 
 
-            <label for="name">profondeur de la plongée</label>
+            <label for="profondeur">profondeur de la plongée</label>
             <input 
                 required 
                 ngModel name="profondeur"
@@ -100,7 +99,7 @@
             </div>
             </div> 
                 
-            <label for="name">durée de la plongée</label>
+            <label for="duree">durée de la plongée</label>
             <input 
                 required 
                 ngModel name="dureePlongee"
@@ -145,12 +144,190 @@
             </div>
         </div>
         <button type="submit" class="btn btn-success" [disabled]="!f.valid">envoyer</button>
-    </form>
+    </form>  
 </div>
-
-
-
 <div [hidden]="!submitted">
     <h4>Envoi réussi!</h4>
     <button class="btn btn-success" (click)="newPlongeur()">Add</button>
 </div>
+<div>
+</div> -->
+
+
+<form class="example-form"  #f="ngForm" (ngSubmit)="onSubmit()">
+    <div ngModelGroup="contact" #contact="ngModelGroup">
+    <!-- <mat-form-field  class="example-input-full-width">
+        <mat-label>num identifiant</mat-label>
+        <input
+        ngModel
+        matInput placeholder="num identif" value="" required
+        [(ngModel)]="plongeur.num" 
+         name="num">
+    </mat-form-field><br/> -->
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>nom</mat-label>
+        <input class="insert"
+        ngModel name="nom" #nom="ngModel"
+        matInput placeholder="nom" value="" required
+        minlength="2" [(ngModel)]="plongeur.nom"
+        type="text" id="nom"  >
+            <div class="alert alert-danger"
+            *ngIf="nom.touched && !nom.valid">
+            <div *ngIf="nom.errors.required">
+                nom obligatoire
+            </div>
+            </div>
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="nom.valid">
+        <mat-icon>check</mat-icon>
+    </div><br/>
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>prénom</mat-label>
+        <input
+        ngModel name="prenom"  #prenom="ngModel" 
+        matInput placeholder="prenom" value="" required
+        minlength="2"  [(ngModel)]="plongeur.prenom"
+         type="text" id="prenom">
+        <div class="alert alert-danger"
+        *ngIf="prenom.touched && !prenom.valid">
+        <div *ngIf="prenom.errors.required">
+            prénom obligatoire
+        </div>
+    </div>
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="prenom.valid">
+        <mat-icon>check</mat-icon>
+    </div>
+    <br/>
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>niveau</mat-label>
+        <select matNativeControl required
+        ngModel  name="niveau" #niveau="ngModel"
+        matInput 
+        [(ngModel)]="plongeur.niveau">
+            <option value="0" selected >0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <div class="alert alert-danger"
+        *ngIf="niveau.touched && !niveau.valid">
+        <div *ngIf="niveau.errors.required">
+            niveau obligatoire
+        </div>
+    </div>
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="niveau.valid">
+        <mat-icon>check</mat-icon>
+    </div>
+    <br/>
+
+   <!--  <mat-form-field  class="example-input-full-width">
+        <mat-label>date plongée</mat-label>
+        <input  
+        (focus)="date.open()"    
+        [matDatepicker]="date"
+        name="date" 
+        matInput placeholder="datePlongee" value="0" required
+        [(ngModel)]="plongeur.datePlongee" >
+        <mat-datepicker-toggle matSuffix [for]="datePlongee"></mat-datepicker-toggle>
+        <mat-datepicker #datePlongee touchUi="true"></mat-datepicker>
+        <div class="alert alert-danger"
+        *ngIf="datePlongee.touched && !datePlongee.valid">
+        <div *ngIf="datePlongee.errors.required">
+            date obligatoire
+        </div>
+    </div>
+    </mat-form-field> -->
+    <mat-form-field class="example-input-full-width">
+        <mat-label>Choisissez une date</mat-label>
+        <input 
+        (focus)="datePlongee.open()"
+        [matDatepicker]="datePlongee"
+        name="datePlongee"
+       
+        [(ngModel)]="plongeur.datePlongee"
+        matInput placeholder="datePlongee" value="0" required>
+        <mat-datepicker-toggle matSuffix [for]="datePlongee"></mat-datepicker-toggle>
+        <mat-datepicker #datePlongee  touchUi="true"></mat-datepicker>
+      </mat-form-field>
+      
+    <br/>
+
+
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>profondeur en mètres</mat-label>
+        <input
+        ngModel name="profondeur" #profondeur="ngModel"
+        matInput placeholder="profondeur" value="0" required
+        [(ngModel)]="plongeur.profondeur"
+        type="text" id="profondeur">
+        <div class="alert alert-danger"
+        *ngIf="profondeur.touched && !profondeur.valid">
+        <div *ngIf="profondeur.errors.required">
+            profondeur obligatoire
+        </div>
+    </div>
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="profondeur.valid">
+        <mat-icon>check</mat-icon>
+    </div>
+    <br/>
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>durée en minutes</mat-label>
+        <input
+        ngModel name="duree" #duree="ngModel"
+        matInput placeholder="duree" value="0" required
+        [(ngModel)]="plongeur.dureePlongee"
+        type="text" id="duree">
+        <div class="alert alert-danger"
+        *ngIf="duree.touched && !duree.valid">
+        <div *ngIf="duree.errors.required">
+            durée obligatoire
+        </div>
+    </div>
+
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="duree.valid">
+        <mat-icon>check</mat-icon>
+    </div>
+    <br/>
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>description</mat-label>
+        <select matNativeControl required
+        ngModel name="description" #description="ngModel"
+        matInput 
+        [(ngModel)]="plongeur.description">
+        <option value="exploration">exploration</option>
+        <option value="formation plongeur">formation plongeur</option>
+        <option value="photographie">photographie</option>
+        <option value="épave">épave</option>
+        <option value="spéléo sous-marine">spéléo sous-marine</option>
+        <option value="entrainement sauvetage">entrainement sauvetage</option>
+        </select>
+        <div class="alert alert-danger"
+        *ngIf="description.touched && !description.valid">
+        <div *ngIf="description.errors.required">
+            description obligatoire
+        </div>
+    </div>
+       
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="description.valid">
+        <mat-icon>check</mat-icon>
+    </div>
+    <br/>
+</div>
+    <button mat-button id="btn" type="submit" 
+    class="exemple-button-row" [disabled]="!f.valid">envoyer</button>
+</form>
+
+
+

@@ -1,9 +1,12 @@
+
+        <h2>Enregistrement des plongées</h2>
+
+
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h2>Enregistrement des plongées</h2>
     </div>
     <div class="panel-body">
-        <table class="table table-striped">
+        <table class="table table-striped" id="maTable">
             <thead>
                 <tr>
                     <th>num</th>
@@ -13,25 +16,43 @@
                     <th>Date </th>
                     <th>Profondeur</th>
                     <th>Durée </th>
+                    <th>Description </th>
+
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let plongeur of plongeurs | async">
+                <tr *ngFor="let plongeur of plongeurs | async | paginate: { 
+                    itemsPerPage: 9,
+                    currentPage: p}" >
                     <td>{{plongeur.num}}</td>
                     <td>{{plongeur.prenom}}</td>
                     <td>{{plongeur.nom}}</td>
                     <td>{{plongeur.niveau}}</td>
-                    <td>{{plongeur.datePlongee}}</td>
-                    <td>{{plongeur.profondeur}}</td>
-                    <td>{{plongeur.dureePlongee}}</td>
-                    <td><button (click)="deletePlongeur(plongeur.num)" class="btn btn-danger">Delete</button>
-                        <button (click)="updatePlongeur(plongeur.num)" class="btn btn-primary"
-                            style="margin-left:10px">Update</button>
-                        <button (click)="plongeurDetails(plongeur.num)" class="btn btn-info"
+                    <td>{{plongeur.datePlongee | date:'EEEE  dd / MMMM / yyyy':'fr-FR' }}</td>
+                    <td>{{plongeur.profondeur}} m</td>
+                    <td>{{plongeur.dureePlongee}} min</td>
+                    <td>{{plongeur.description}}</td>
+
+                    <td>
+                        <button mat-stroked-button  color="primary"(click)="plongeurDetails(plongeur.num)" class="btn-stroked"
                             style="margin-left:10px">Details</button>
+                           <button mat-raised-button id="modif" (click)="updatePlongeur(plongeur.num)" class="btn-stroked"
+                            style="margin-left:10px">Modifier</button>
+                        <button mat-fab color="accent" (click)="deletePlongeur(plongeur.num)" class="btn-fab" 
+                        aria-label="Example icon button with a delete icon"  title="supprimer">
+                            <mat-icon>delete</mat-icon>
+                        </button>  
                     </td>
                 </tr>
             </tbody>
         </table>
+<pagination-controls class="myPagination" (pageChange) = "p=$event" maxSize="4">
+</pagination-controls>
+<br/>
     </div>
 </div>
+
+
+
+
+

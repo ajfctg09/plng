@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlongeurDetailsComponent } from '../plongeur-details/plongeur-details.component';
 import { Observable } from 'rxjs';
 import { PlongeurService } from '../plongeur.service';
@@ -12,16 +12,16 @@ import { Router } from '@angular/router';
 })
 export class PlongeurListComponent implements OnInit {
 
-
   plongeurs: Observable<Plongeur[]>;
-
+  p: number;
   constructor(private plongeurService: PlongeurService, private router: Router) { }
 
   ngOnInit() {
-    this.reloadData();
+    this.reloadData(); 
   }
   reloadData() {
     this.plongeurs = this.plongeurService.getPlongeursList();
+    
   }
 
   deletePlongeur(num: number) {
@@ -42,5 +42,7 @@ export class PlongeurListComponent implements OnInit {
   updatePlongeur(num: number) {
     this.router.navigate(['update', num]);
   }
+
+
 
 }

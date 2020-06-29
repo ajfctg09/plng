@@ -1,0 +1,175 @@
+<h3>Formulaire de demande de plongée</h3>
+
+
+
+<form class="example-form"  #f="ngForm" (ngSubmit)="onSubmit()">
+    <div ngModelGroup="contact" #contact="ngModelGroup">
+   
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>nom</mat-label>
+        <input class="insert"
+        ngModel name="nom" #nom="ngModel"
+        matInput placeholder="nom" value="" required
+        minlength="2" [(ngModel)]="demande.nom"
+        type="text" id="nom"  >
+            <div class="alert alert-danger"
+            *ngIf="nom.touched && !nom.valid">
+            <div *ngIf="nom.errors.required">
+                nom obligatoire
+            </div>
+            </div>
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="nom.valid">
+        <mat-icon>check</mat-icon>
+    </div><br/>
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>prénom</mat-label>
+        <input
+        ngModel name="prenom"  #prenom="ngModel" 
+        matInput placeholder="prenom" value="" required
+        minlength="2"  [(ngModel)]="demande.prenom"
+         type="text" id="prenom">
+        <div class="alert alert-danger"
+        *ngIf="prenom.touched && !prenom.valid">
+        <div *ngIf="prenom.errors.required">
+            prénom obligatoire
+        </div>
+    </div>
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="prenom.valid">
+        <mat-icon>check</mat-icon>
+    </div>
+    <br/>
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>niveau</mat-label>
+        <select matNativeControl required
+        ngModel  name="niveau" #niveau="ngModel"
+        matInput 
+        [(ngModel)]="demande.niveau">
+            <option value="0" selected >0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <div class="alert alert-danger"
+        *ngIf="niveau.touched && !niveau.valid">
+        <div *ngIf="niveau.errors.required">
+            niveau obligatoire
+        </div>
+    </div>
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="niveau.valid">
+        <mat-icon>check</mat-icon>
+    </div>
+    <br/>
+
+  
+    <mat-form-field class="example-input-full-width">
+        <mat-label>Choisissez une date</mat-label>
+        <input 
+        (focus)="datePlongee.open()"
+        [matDatepicker]="datePlongee"
+        name="datePlongee"
+       
+        [(ngModel)]="demande.datePlongee"
+        matInput placeholder="datePlongee" value="0" required>
+        <mat-datepicker-toggle matSuffix [for]="datePlongee"></mat-datepicker-toggle>
+        <mat-datepicker #datePlongee  touchUi="true"></mat-datepicker>
+      </mat-form-field>
+      
+    <br/>
+
+
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>Validité certificat médical </mat-label>
+        <input
+        ngModel name="certifMedical" #certifMedical="ngModel"
+        matInput placeholder="certifMedical" value="0" required
+        [(ngModel)]="demande.certifMedical"
+        type="text" id="certifMedical">
+        <mat-radio-group aria-label="Select an option"
+        ngModel name="certifMedical" #certifMedical="ngModel"
+        matInput placeholder="certifMedical" value="0" required
+        [(ngModel)]="demande.certifMedical"
+        type="text" id="certifMedical">
+            <mat-radio-button value="true"> à jour </mat-radio-button>
+            <mat-radio-button value="false"> pas à jour </mat-radio-button>
+          </mat-radio-group>
+        <div class="alert alert-danger"
+        *ngIf="certifMedical.touched && !certifMedical.valid">
+        <div *ngIf="certifMedical.errors.required">
+            Préciser impérativement si le certificat médical est à jour
+        </div>
+    </div>
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="certifMedical.valid">
+        <mat-icon>check</mat-icon>
+    </div>
+    <br/>
+    
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>Location de matériel</mat-label>
+        <input
+        ngModel name="locationMateriel" #locationMateriel="ngModel"
+        matInput placeholder="locationMateriel" value="0" required
+        [(ngModel)]="demande.locationMateriel"
+        type="text" id="locationMateriel">
+        <mat-radio-group aria-label="Select an option"
+        ngModel name="locationMateriel" #locationMateriel="ngModel"
+        matInput placeholder="locationMateriel" value="0" required
+        [(ngModel)]="demande.locationMateriel"
+        type="text" id="locationMateriel">
+            <mat-radio-button value="true"> Oui </mat-radio-button>
+            <mat-radio-button value="false"> Non </mat-radio-button>
+          </mat-radio-group>
+        <div class="alert alert-danger"
+        *ngIf="locationMateriel.touched && !locationMateriel.valid">
+        <div *ngIf="locationMateriel.errors.required">
+            précisez si vous voulez louer le matériel
+        </div>
+    </div>
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="locationMateriel.valid">
+        <mat-icon>check</mat-icon>
+    </div>
+    <br/>
+    
+    <mat-form-field  class="example-input-full-width">
+        <mat-label>type de plongée</mat-label>
+        <select matNativeControl required
+        ngModel name="typePlongee" #typePlongee="ngModel"
+        matInput 
+        [(ngModel)]="demande.typePlongee">
+        <option value="exploration">exploration</option>
+        <option value="formation plongeur">formation plongeur</option>
+        <option value="photographie">photographie</option>
+        <option value="épave">épave</option>
+        <option value="spéléo sous-marine">spéléo sous-marine</option>
+        <option value="entrainement sauvetage">entrainement sauvetage</option>
+        </select>
+        <div class="alert alert-danger"
+        *ngIf="typePlongee.touched && !typePlongee.valid">
+        <div *ngIf="typePlongee.errors.required">
+            type de plongée à préciser obligatoirement
+        </div>
+    </div>
+       
+    </mat-form-field>
+    <div class="completed"
+    *ngIf="typePlongee.valid">
+        <mat-icon>check</mat-icon>
+    </div>
+    <br/>
+</div>
+    <button mat-button id="btn" type="submit" 
+    class="exemple-button-row" [disabled]="!f.valid">envoyer</button>
+</form>
+
+
+

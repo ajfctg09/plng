@@ -10,19 +10,16 @@ label {
 
 .example-input-full-width{
     color:black;
-        color:white;
-
 }
 
 .card {
     padding-left: 200px;
     padding-right: 200px;
-
 }
 
 .example-form {
     box-shadow: 8px 8px 12px rgb(155, 154, 154);
-    color:white;
+
 }
 
 mat-icon {
@@ -31,7 +28,7 @@ mat-icon {
 
 .exemple-button-row{
     background-color: rgb(38, 131, 168);
-    box-shadow: 8px 8px 12px rgb(199, 175, 175);
+    box-shadow: 8px 8px 12px rgb(140, 138, 138);
     margin-bottom: 15px;
 }
 
@@ -54,6 +51,8 @@ mat-icon {
     width:40%;
     display:inline-block ;
     text-align: left;
-    color:white;
+}
 
+mat-radio-button {
+    padding-left : 15px;
 }

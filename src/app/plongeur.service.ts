@@ -8,7 +8,7 @@ import { Plongeur } from './plongeur';
 })
 export class PlongeurService {
 
-  private baseUrl = 'http://localhost:8080/api/v3/plongeursfirebase ';
+  private baseUrl = 'http://localhost:8080/api/v3/plongeurs';
 
   constructor(private http: HttpClient) { }
 

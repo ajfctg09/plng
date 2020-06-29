@@ -1,0 +1,31 @@
+<h2>Details demande</h2>
+<hr />
+<div *ngIf="demande" class="tabDet">
+    <div>
+        <label><b>num: </b></label> {{demande.num}}
+    </div>
+    <div>
+        <label><b>nom: </b></label> {{demande.nom}}
+    </div>
+    <div>
+        <label><b>prenom: </b></label> {{demande.prenom}}
+    </div>
+    <div>
+        <label><b>niveau: </b></label> {{demande.niveau}}
+    </div>
+    <div>
+        <label><b>date de la plongée: </b></label> {{demande.datePlongee}}
+    </div>
+    <div>
+        <label><b>certificat médical: </b></label> {{demande.certifMedical}}
+    </div>
+    <div>
+        <label><b>location de matériel: </b></label> {{demande.locationMateriel}}
+    </div>
+    <div>
+        <label><b>type de plongée: </b></label> {{demande.typePlongee}}
+    </div>
+</div>
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary" id="btn">Retour à la liste des demandes</button><br>

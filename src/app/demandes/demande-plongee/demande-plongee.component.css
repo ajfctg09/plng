@@ -3,6 +3,17 @@ h2 {
     text-align: left;
 }
 
+.panel-heading {
+    padding-left: 1px;
+    color:black;
+}
+
+#maTable {
+    color:black;
+}
+
+
+
 
 .mat-elevation-z8 {
     color:black;
@@ -35,8 +46,10 @@ h2 {
 .panel-body {
     background-color: rgb(224, 229, 230);
     box-shadow: 8px 8px 12px rgb(155, 154, 154);
+    width : 1310px;
+    color:black;
 }
 
-.myPagination {
-    font-size: 18px;
+.myPagination{
+    background-color: crimson;
 }

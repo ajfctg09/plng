@@ -1,6 +1,6 @@
 <h2>Details plongée</h2>
 <hr />
-<div *ngIf="plongeur">
+<div *ngIf="plongeur" class="tabDet">
     <div>
         <label><b>num: </b></label> {{plongeur.num}}
     </div>
@@ -28,4 +28,4 @@
 </div>
 <br>
 <br>
-<button (click)="list()" class="btn btn-primary">Retour à la liste des plongées</button><br>
+<button (click)="list()" class="btn btn-primary" id="btn">Retour à la liste des plongées</button><br>

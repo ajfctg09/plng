@@ -1,3 +1,11 @@
+h2 {
+    color:wheat;
+}
+h1 {
+    padding-left : 50px;
+
+}
+
 .nav-item img{
     max-width: 25%;
     height: auto;
@@ -6,6 +14,17 @@
     float:right;
     padding-bottom: 8px;
     padding-right:10px ;
+}
+
+img {
+    max-width: 250%;
+    height: auto;
+    /* align-items: flex-end; */
+    text-align: right;   
+    float:right;
+    padding-bottom: 8px;
+    padding-right:10px ;
+    padding-left : 20px;
 }
 
 .navbar-nav {
@@ -18,12 +37,59 @@
     width: 200px;
 }
 
-.card-body {
-    color: white;
-    text-align: center;
+.container{
+    color:white;
+    margin-left:30px;
+
 }
 
-body {
-    color: white;
 
+.card {
+    width:1350px;
+    opacity:1;
+    box-shadow: 8px 8px 12px rgb(140, 138, 138);
+    background-color:white;
+
+}
+
+.card-body {
+    width:100%;
+    text-align: center;
+    background-color:wheat;
+    opacity:1;
+
+}
+
+.panel-body {
+    background-color:white;
+
+}
+
+
+
+button {
+    padding-left : 50px;
+}
+
+.mat-button-focus-overlay {
+    padding-bottom: 8px;
+    padding-right:10px ;
+    padding-left : 20px;
+}
+
+mat-toolbar {
+    height:90px;
+    background-color: rgba(104, 156, 211, 0.796);
+    font-size:20px;
+    color:white;
+    opacity:0.8;
+}
+
+h4 {
+    font-size:17px;
+    font-family: serif;
+    color:yellow;
+}
+h4:hover {
+    color:orange;
 }

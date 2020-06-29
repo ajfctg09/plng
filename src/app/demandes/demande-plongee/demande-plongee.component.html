@@ -1,0 +1,57 @@
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+        <h2>Liste des demandes de plongée</h2>
+        <table class="table table-striped" id="maTable">
+            <thead>
+                <tr>
+                    <th>num</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Niveau</th>
+                    <th>Date </th>
+                    <th>Cetificat médical</th>
+                    <th>Location de matériel </th>
+                    <th>Type de plongée</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let demande of demandes | async | paginate: { 
+                    itemsPerPage: 5,
+                    currentPage: p}" >
+                    <td>{{demande.num}}</td>
+                    <td>{{demande.prenom}}</td>
+                    <td>{{demande.nom}}</td>
+                    <td>{{demande.niveau}}</td>
+                    <td>{{demande.datePlongee | date:' dd / LLLL/ yyyy':'fr-FR' }}</td>
+                    <td>{{demande.certifMedical}} </td>
+                    <td>{{demande.locationMateriel}} </td>
+                    <td>{{demande.typePlongee}}</td>
+
+                    <td>
+                        <button mat-stroked-button  color="primary"(click)="demandeDetails(demande.num)" class="btn-stroked"
+                            style="margin-left:10px">Details</button>
+                           <button mat-raised-button id="modif" (click)="updateDemande(demande.num)" class="btn-stroked"
+                            style="margin-left:10px">Modifier</button>
+                        <button mat-fab color="accent" (click)="deleteDemande(demande.num)" class="btn-fab" 
+                        aria-label="Example icon button with a delete icon"  title="supprimer">
+                            <mat-icon>delete</mat-icon>
+                        </button>  
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+<pagination-controls class="myPagination" (pageChange) = "p=$event" maxSize="4">
+</pagination-controls>
+<br/>
+    </div>
+</div>
+
+
+
+
+

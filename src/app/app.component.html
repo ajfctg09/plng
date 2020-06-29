@@ -1,27 +1,36 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a routerLink="activites" class="nav-link" routerLinkActive="active "><img src="assets/img/favicon_plongee.png"></a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="activites" class="nav-link" routerLinkActive="active current">Activités plongées</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="plongeurs" class="nav-link" routerLinkActive="active current">Liste des plongées</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="add" class="nav-link" routerLinkActive="active current">Ajouter plongée</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="demande" class="nav-link" routerLinkActive="active current">demande de plongée</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="about" class="nav-link" routerLinkActive="active current">About</a>
-    </li>
-   
-  </ul>
-</nav>
+
+<mat-toolbar >
+  <mat-toolbar-row>
+    <button mat-icon-button routerLink="home" routerLinkActive="active current">
+      <mat-icon ><img src="assets/img/favicon_plongee.png"></mat-icon>
+    </button>
+    <h1>nom site</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <button mat-button routerLink="activites" routerLinkActive="active current"> <h4>Activités plongées </h4></button>
+
+      <button mat-button  [matMenuTriggerFor]="plongeesMenu" > <h4>Enregistrements plongées</h4></button>
+        <mat-menu #plongeesMenu="matMenu" yPosition="above">
+        <button mat-menu-item  routerLink="plongeurs" >Liste des plongées</button>
+        <button mat-menu-item  routerLink="add" >Ajouter une plongée</button>
+      </mat-menu>
+
+     
+      <button mat-button  routerLinkActive="active current" [matMenuTriggerFor]="menu"><h4>demande de plongée </h4>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="formulaire_demande">formulaire demande</button>
+          <button mat-menu-item routerLink="demandes"> Liste des demandes</button>
+        </mat-menu></button>
+      <button mat-button routerLink="about" routerLinkActive="active current"><h4> About </h4></button>
+       <span style="padding-left: 400px;color:black"><a mat-button routerLink="connexion" routerLinkActive="active current">
+         <h4> Connexion </h4></a></span>
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+      <span style="font-size: 12px;">Pour découvrir le monde sous-marin</span>
+    </mat-toolbar-row>
+</mat-toolbar>
 
 <div class="container">
   <br>

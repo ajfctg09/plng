@@ -1,0 +1,51 @@
+<h3>Modification demande</h3>
+<div [hidden] style="width: 500px;">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">num</label>
+            <input type="text" class="form-control" id="num" required [(ngModel)]="demande.num" name="num">
+        </div>
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" class="form-control" id="nom" required [(ngModel)]="demande.nom" name="nom">
+        </div>
+        <div class="form-group">
+            <label for="name">Prenom</label>
+            <input type="text" class="form-control" id="prenom" required [(ngModel)]="demande.prenom" name="prenom">
+        </div>
+        <div class="form-group">
+            <label for="name">niveau</label>
+            <input type="text" class="form-control" id="niveau" required [(ngModel)]="demande.niveau" name="niveau">
+        </div>
+        <div class="form-group">
+            <label for="name">date de la plongée</label>
+            <input type="text" class="form-control" id="datePlongee" required [(ngModel)]="demande.datePlongee" name="datePlongee">
+        </div>
+        <div class="form-group">
+            <label for="name">Certificat médical</label>
+            <input type="text" class="form-control" id="certifMedical" required [(ngModel)]="demande.certifMedical" name="certifMedical">
+        </div>
+        <div class="form-group">
+            <label for="name">Location méteriel</label>
+            <input type="text" class="form-control" id="locationMateriel" required [(ngModel)]="demande.locationMateriel" name="locationMateriel">
+            <mat-radio-group aria-label="Select an option"
+            ngModel name="locationMateriel" #locationMateriel="ngModel"
+            matInput placeholder="locationMateriel" value="0" required
+            [(ngModel)]="demande.locationMateriel"
+            type="text" id="locationMateriel">
+                <mat-radio-button value="true"> Oui </mat-radio-button>
+                <mat-radio-button value="false"> Non </mat-radio-button>
+              </mat-radio-group>
+        </div>
+
+       <!--  <div class="form-group">
+            <label for="name">Location matériel</label>
+            <input type="text" class="form-control" id="locationMateriel" required [(ngModel)]="demande.certifMedical" name="locationMateriel">
+        </div> -->
+        <div class="form-group">
+            <label for="name">Type de plongée</label>
+            <input type="text" class="form-control" id="typePlongee" required [(ngModel)]="demande.typePlongee" name="typePlongee">
+        </div>
+        <button type="submit" class="btn btn-success">Envoyer</button>
+    </form>
+</div>
